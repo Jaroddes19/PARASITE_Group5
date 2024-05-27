@@ -28,6 +28,8 @@
 .vscode/
 connectwbgl.zip
 webgl_sharing
+WebGL_Builds/
+*.zip
 
 # Gradle cache directory
 .gradle/
