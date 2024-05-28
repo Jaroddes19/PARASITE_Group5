@@ -26,6 +26,10 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         float step = moveSpeed * Time.deltaTime;
 
         transform.LookAt(player);
@@ -44,7 +48,8 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     //Stops enemy from skating away in a direction after a heavy collsion or bounce
-    void Inertia(){
+    void Inertia()
+    {
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }

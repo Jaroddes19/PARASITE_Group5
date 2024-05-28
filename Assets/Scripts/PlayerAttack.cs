@@ -50,17 +50,18 @@ public class PlayerAttack : MonoBehaviour
      */
     void ParisitizeAttack()
     {
-        Debug.Log("Start Parasitizing now");
+        // Debug.Log("Start Parasitizing now");
 
         RaycastHit parasiteAtk;
         // if the attack hits
         if (Physics.Raycast(transform.position, transform.forward, out parasiteAtk, attackDistance))
         {
             // do we meet the conditions to parisitize this enemy? (currently a stub method)
-            if (canParisitize(parasiteAtk))
+            if (canParisitize(parasiteAtk.collider.gameObject))
             {
-                Parasitize(parasiteAtk.transform.gameObject);
-            } else
+                Parasitize(parasiteAtk.collider.gameObject);
+            }
+            else
             {
                 //TODO
             }
@@ -74,19 +75,29 @@ public class PlayerAttack : MonoBehaviour
      */
     void Parasitize(GameObject newPlayerObj)
     {
-        Debug.Log("Running parasite operations");
+        // Debug.Log("Running parasite operations");
         // remove enemy scripts
         Destroy(newPlayerObj.GetComponent<EnemyBehavior>());
         Destroy(newPlayerObj.GetComponent<EnemyHit>());
         Destroy(newPlayerObj.GetComponent<Rigidbody>());
+        // Need to remove enemy canvas
 
         // add player scripts
         newPlayerObj.AddComponent<PlayerController>();
         newPlayerObj.AddComponent<PlayerHealth>();
         newPlayerObj.AddComponent<CharacterController>();
+        newPlayerObj.GetComponent<MeshRenderer>().enabled = false;
+        MeshRenderer[] mr = newPlayerObj.GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer m in mr)
+        {
+            m.enabled = false;
+        }
+        newPlayerObj.GetComponentInChildren<Canvas>().enabled = false;
 
+        var oldPlayer = gameObject.transform.parent;
         // shift camera to new player controlled gameobj
         gameObject.transform.SetParent(newPlayerObj.transform);
+        gameObject.transform.localPosition = new Vector3(0, 0, 0);
         // add scripts to camera
         /*
         GameObject camera = newPlayerObj.transform.Find("MainCamera").gameObject;
@@ -96,7 +107,28 @@ public class PlayerAttack : MonoBehaviour
         */
 
         // update respective tags
+        // gameObject.tag = "Untagged";
         newPlayerObj.tag = "Player";
+
+        Debug.Log(oldPlayer.gameObject.name);
+
+        // if (Need to find a way to distinguish parasite and old enemy that the player is controlling)
+        // {
+            Destroy(oldPlayer.gameObject);
+
+        // }
+        // else
+        // {
+        //     oldPlayer.gameObject.tag = "Enemy";
+        //     Destroy(oldPlayer.gameObject.GetComponent<PlayerController>());
+        //     Destroy(oldPlayer.gameObject.GetComponent<PlayerHealth>());
+        //     Destroy(oldPlayer.gameObject.GetComponent<CharacterController>());
+        //     oldPlayer.gameObject.AddComponent<EnemyBehavior>();
+        //     oldPlayer.gameObject.AddComponent<EnemyHit>();
+        //     oldPlayer.gameObject.AddComponent<Rigidbody>();
+        //     Need to add back enemy canvas
+        // }
+
 
 
         /*
@@ -114,9 +146,9 @@ public class PlayerAttack : MonoBehaviour
      * 
      * returns true if we can parasitize, false otherwise
      */
-    bool canParisitize(RaycastHit hitObj)
+    bool canParisitize(GameObject hitObj)
     {
-        return true;
+        return hitObj.CompareTag("Enemy");
     }
 
     void ResetAttack()
