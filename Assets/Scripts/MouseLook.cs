@@ -19,8 +19,6 @@ public class MouseLook : MonoBehaviour
     {
         originalColor = reticleImage.color;
 
-        playerBody = transform.parent.transform;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -28,6 +26,9 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // done in Update() because the player's body can change
+        playerBody = transform.parent.transform;
+
         float moveX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float moveY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

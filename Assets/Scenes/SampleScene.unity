@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -257,6 +258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7688102532399411196, guid: 702df3dfbb1d88a469c52f92c0d7af9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -396,6 +401,10 @@ PrefabInstance:
     - target: {fileID: 7688102532399411196, guid: 702df3dfbb1d88a469c52f92c0d7af9f, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7688102532399411196, guid: 702df3dfbb1d88a469c52f92c0d7af9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -596,7 +605,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 1, z: 50}
+  m_LocalScale: {x: 70, y: 1, z: 70}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -980,6 +989,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1677417985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7545358771692703522, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
+  m_PrefabInstance: {fileID: 8014810087094757899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1677417993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677417985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df2100826675f741bdb5ecca11307f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 2
+  attackDamage: 40
+  attackSpeed: 1
 --- !u!1 &1706191965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7688102532399411196, guid: 702df3dfbb1d88a469c52f92c0d7af9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1357,15 +1390,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6089580783943823772, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6089580783943823772, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6089580783943823772, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6089580783943823772, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1386,7 +1419,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7545358771692703522, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677417993}
   m_SourcePrefab: {fileID: 100100000, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1394,7 +1430,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 705507995}
   - {fileID: 834631881}
-  - {fileID: 8014810087094757899}
   - {fileID: 878934876}
   - {fileID: 1549776805}
   - {fileID: 7183173456781215988}
@@ -1404,3 +1439,4 @@ SceneRoots:
   - {fileID: 320930944}
   - {fileID: 453211101}
   - {fileID: 2126229406}
+  - {fileID: 8014810087094757899}

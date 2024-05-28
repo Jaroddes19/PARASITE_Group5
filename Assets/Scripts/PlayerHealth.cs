@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = startingHealth;
+        if (healthSlider == null ) {
+            healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
+        }
         healthSlider.value = currentHealth;
     }
 
