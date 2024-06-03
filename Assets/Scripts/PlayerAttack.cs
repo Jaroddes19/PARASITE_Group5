@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    // the max %hp an enemy can have and be parasitized
+    public float hpParasiteThreshold = 0.5f;
+    
     float attackDistance;
     int attackDamage;
     float attackSpeed;
@@ -27,7 +30,6 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (Input.GetButtonDown("Q"))
         {
-            Debug.Log("Attempting to parisitze");
             ParisitizeAttack();
         }
     }
@@ -57,9 +59,11 @@ public class PlayerAttack : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out parasiteAtk, attackDistance))
         {
             // do we meet the conditions to parisitize this enemy? (currently a stub method)
-            if (canParisitize(parasiteAtk.collider.gameObject))
+            // get the top level gameobject (in case an arm, etc is collided with)
+            var root = parasiteAtk.transform.root.gameObject;
+            if (canParisitize(root))
             {
-                Parasitize(parasiteAtk.collider.gameObject);
+                Parasitize(root);
             }
             else
             {
@@ -98,19 +102,8 @@ public class PlayerAttack : MonoBehaviour
         // shift camera to new player controlled gameobj
         gameObject.transform.SetParent(newPlayerObj.transform);
         gameObject.transform.localPosition = new Vector3(0, 0, 0);
-        // add scripts to camera
-        /*
-        GameObject camera = newPlayerObj.transform.Find("MainCamera").gameObject;
-        Debug.Log(camera);
-        camera.AddComponent<PlayerAttack>();
-        camera.AddComponent<MouseLook>();
-        */
-
-        // update respective tags
-        // gameObject.tag = "Untagged";
+   
         newPlayerObj.tag = "Player";
-
-        Debug.Log(oldPlayer.gameObject.name);
 
         // if (Need to find a way to distinguish parasite and old enemy that the player is controlling)
         // {
@@ -148,7 +141,12 @@ public class PlayerAttack : MonoBehaviour
      */
     bool canParisitize(GameObject hitObj)
     {
-        return hitObj.CompareTag("Enemy");
+        if (hitObj.CompareTag("Enemy"))
+        {
+            var hitAttrs = hitObj.GetComponent<CharacterAttributes>();
+            return (float) hitAttrs.currentHealth / hitAttrs.maxHealth <= hpParasiteThreshold;
+        }
+        return false;
     }
 
     void ResetAttack()
@@ -168,6 +166,5 @@ public class PlayerAttack : MonoBehaviour
 
             }
         }
-
     }
 }

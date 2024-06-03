@@ -11,9 +11,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
 
-        charAttrs.currentHealth = charAttrs.maxHealth;
+        charAttrs.currentHealth = charAttrs.currentHealth;
         if (healthSlider == null ) {
             healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
