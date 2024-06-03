@@ -24,7 +24,6 @@ public class ShootProjectile : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             Fire();
-
         }
     }
 
