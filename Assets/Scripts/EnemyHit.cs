@@ -58,25 +58,24 @@ public class EnemyHit : MonoBehaviour
             // Removed because these could push the enemy through walls and other colliders
             //transform.position -= transform.forward * 2f
             //gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-<<<<<<< HEAD
             if (collision != null)
             {
-=======
-            if (collision != null) {
->>>>>>> main
-                gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * 2, ForceMode.Impulse);
+                if (collision != null)
+                {
+                    gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * 2, ForceMode.Impulse);
+                }
+            }
+            if (charAttrs.currentHealth <= 0)
+            {
+                DestroySelf();
             }
         }
-        if (charAttrs.currentHealth <= 0)
-        {
-            DestroySelf();
-        }
-    }
 
-    void DestroySelf()
-    {
-        Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
-        gameObject.SetActive(false);
-        Destroy(gameObject, 0.5f);
+        void DestroySelf()
+        {
+            Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
+            gameObject.SetActive(false);
+            Destroy(gameObject, 0.5f);
+        }
     }
 }

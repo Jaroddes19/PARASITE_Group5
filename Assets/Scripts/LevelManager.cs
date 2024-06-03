@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip gameOverSFX;
 
+    public AudioSource backgroundSFX;
+
     public AudioClip gameWinSFX;
 
     public static bool isGameOver = false;
@@ -26,6 +28,9 @@ public class LevelManager : MonoBehaviour
     {
         isGameOver = false;
         gameText.color = Color.green;
+
+        backgroundSFX = Camera.main.GetComponent<AudioSource>();
+        backgroundSFX.Play();
     }
 
     // Update is called once per frame
