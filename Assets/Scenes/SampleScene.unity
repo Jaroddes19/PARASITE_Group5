@@ -122,7 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1001 &79586205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3021,6 +3020,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_Name: pb_Mesh18558
   serializedVersion: 11
   m_SubMeshes:
@@ -3169,6 +3169,40 @@ Mesh:
     m_Center: {x: 1.5, y: 1.125, z: -2}
     m_Extent: {x: 1.75, y: 1.125, z: 2.25}
   m_MeshUsageFlags: 0
+=======
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386723651}
+  - component: {fileID: 386723653}
+  - component: {fileID: 386723652}
+  m_Layer: 5
+  m_Name: Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &386723651
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563882972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+>>>>>>> 22e10aa (Prefab updates)
   m_CookingOptions: 30
 <<<<<<< HEAD
   m_Mesh: {fileID: 1454244117}
@@ -5140,6 +5174,7 @@ Transform:
   m_PrefabInstance: {fileID: 495815502}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
@@ -5316,6 +5351,8 @@ Mesh:
     size: 0
     path: 
 >>>>>>> d043ccd (more assets, hidden pipe spline)
+=======
+>>>>>>> 22e10aa (Prefab updates)
 --- !u!43 &999564389
 Mesh:
   m_ObjectHideFlags: 0
@@ -6167,6 +6204,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5832738299900539991, guid: 563076f3a705f3743b4d6b92ed049194, type: 3}
   m_PrefabInstance: {fileID: 1516088068976910040}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 =======
 --- !u!43 &1093608054
 Mesh:
@@ -6334,6 +6372,8 @@ Mesh:
     size: 0
     path: 
 >>>>>>> d043ccd (more assets, hidden pipe spline)
+=======
+>>>>>>> 22e10aa (Prefab updates)
 --- !u!1 &1182548844
 GameObject:
   m_ObjectHideFlags: 0
@@ -27166,7 +27206,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-<<<<<<< HEAD
   - {fileID: 1182548846}
   - {fileID: 4138316538438068993}
 <<<<<<< HEAD
@@ -27178,6 +27217,7 @@ SceneRoots:
   - {fileID: 5318619584910483586}
   - {fileID: 930235705}
   - {fileID: 1866492461}
+<<<<<<< HEAD
 =======
   - {fileID: 705507995}
   - {fileID: 834631881}
@@ -27209,3 +27249,5 @@ SceneRoots:
   - {fileID: 1996556455}
   - {fileID: 1616313604}
 >>>>>>> d043ccd (more assets, hidden pipe spline)
+=======
+>>>>>>> 22e10aa (Prefab updates)
