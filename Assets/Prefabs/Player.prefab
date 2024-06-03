@@ -241,12 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4e241b65d41fd4ba90a53c7d4e59de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
-  attackDistance: 2
-  attackDamage: 20
-  attackSpeed: 1
->>>>>>> e9393f60d608ca6e0df8eca8d504d4b1215e7dcf
 --- !u!1 &7545358771692703522
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,10 +256,7 @@ GameObject:
   - component: {fileID: 4740959663487159770}
   - component: {fileID: 710661157914778139}
   - component: {fileID: 5354968258686814863}
-<<<<<<< HEAD
   - component: {fileID: 5336579371232481805}
-=======
->>>>>>> e9393f60d608ca6e0df8eca8d504d4b1215e7dcf
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -416,7 +407,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   healthSlider: {fileID: 0}
-<<<<<<< HEAD
 --- !u!114 &5336579371232481805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,5 +422,3 @@ MonoBehaviour:
   attackDistance: 2
   attackDamage: 40
   attackSpeed: 1
-=======
->>>>>>> e9393f60d608ca6e0df8eca8d504d4b1215e7dcf
