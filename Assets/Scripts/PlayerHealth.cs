@@ -57,5 +57,6 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player is dead");
         // AudioSource.PlayClipAtPoint(deathSFX, transform.position);
         transform.Rotate(-90, 0, 0, Space.Self);
+        FindObjectOfType<LevelManager>().LevelLost();
     }
 }

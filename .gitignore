@@ -9,6 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/[Pp]ackages/
+/[Pp]roject[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -26,8 +28,11 @@
 # Visual Studio cache directory
 .vs/
 .vscode/
-connectwbgl.zip
+WebGL_Builds/
+*.zip
 webgl_sharing
+WebGL_Builds/
+*.zip
 
 # Gradle cache directory
 .gradle/

@@ -4,9 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
+  - ProjectileParent
+  - Enemy
+  - Projectile
+  - EnemySpawner
+=======
   - Projectile
   - ProjectileParent
   - Enemy
+>>>>>>> main
   layers:
   - Default
   - TransparentFX

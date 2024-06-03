@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9198005910079482054}
   - component: {fileID: 6446242395591029950}
-  - component: {fileID: 5680001464760375241}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,30 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7688102532399411196, guid: 702df3dfbb1d88a469c52f92c0d7af9f, type: 3}
+  waves: 2
   spawnTime: 30
   spawnStart: 1
   spawnAmount: 5
-  xMin: -25
-  xMax: 25
-  zMin: -25
-  zMax: 25
---- !u!114 &5680001464760375241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735060666053326131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8d12fb095637f47abba1aa50bf432b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnTime: 3
-  spawnStart: 1
-  spawnAmount: 5
-  xMin: -25
-  xMax: 25
-  zMin: -25
-  zMax: 25
+  xMin: -21
+  xMax: 10
+  yMin: 2
+  yMax: 2
+  zMin: 14
+  zMax: 96

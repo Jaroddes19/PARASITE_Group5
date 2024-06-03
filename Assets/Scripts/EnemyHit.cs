@@ -58,7 +58,12 @@ public class EnemyHit : MonoBehaviour
             // Removed because these could push the enemy through walls and other colliders
             //transform.position -= transform.forward * 2f
             //gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+<<<<<<< HEAD
+            if (collision != null)
+            {
+=======
             if (collision != null) {
+>>>>>>> main
                 gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * 2, ForceMode.Impulse);
             }
         }
