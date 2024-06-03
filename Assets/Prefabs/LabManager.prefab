@@ -611,7 +611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 10
   damageAmount: 20
 --- !u!114 &8276825271883996643
 MonoBehaviour:

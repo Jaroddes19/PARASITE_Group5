@@ -12,6 +12,7 @@ public class CharacterAttributes : MonoBehaviour
      * Attributes to be accessed by the entity this script is attached to:
      */
     //health
+    // NOTE: current health must = max health in this file so when the player takes over they receive the enemy's current hp
     public int currentHealth;
     public int maxHealth;
 
