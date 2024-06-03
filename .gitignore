@@ -25,6 +25,9 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
+connectwbgl.zip
+webgl_sharing
 
 # Gradle cache directory
 .gradle/
