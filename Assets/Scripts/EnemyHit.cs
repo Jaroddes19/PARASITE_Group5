@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,20 @@ public class EnemyHit : MonoBehaviour
     public GameObject bloodSplatter;
     public Slider healthSlider;
 
-    public int enemyHealth = 80;
-
-    int currentHealth;
-
     void Start()
     {
-        currentHealth = enemyHealth;
-        healthSlider.value = currentHealth;
+        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        charAttrs.currentHealth = charAttrs.maxHealth;
+
+        if (healthSlider == null)
+        {
+            healthSlider = gameObject.GetComponentInChildren<Slider>();
+        }
+        healthSlider.value = charAttrs.currentHealth;
+        if (bloodSplatter == null)
+        {
+            bloodSplatter = GameObject.Find("ObjectsToDynamicallyFind").transform.Find("BloodSplatter").gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -26,36 +33,40 @@ public class EnemyHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+
         if (other.gameObject.CompareTag("Projectile"))
         {
             Destroy(other.gameObject);
-            if (currentHealth > 0)
+            if (charAttrs.currentHealth > 0)
             {
                 TakeDamage(other.gameObject.GetComponent<ProjectileAttributes>().projectileDamage);
-
             }
-            if (currentHealth <= 0)
+            if (charAttrs.currentHealth <= 0)
             {
-                DestroyEnemy();
+                DestroySelf();
             }
         }
     }
+
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+
+        if (charAttrs.currentHealth > 0)
         {
-            currentHealth -= damage;
-            healthSlider.value = currentHealth;
+            charAttrs.currentHealth -= damage;
+            healthSlider.value = charAttrs.currentHealth;
             transform.position -= transform.forward * 2f;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-        if (currentHealth <= 0)
+        if (charAttrs.currentHealth <= 0)
         {
-            DestroyEnemy();
+            DestroySelf();
         }
     }
 
-    void DestroyEnemy()
+    void DestroySelf()
     {
         Instantiate(bloodSplatter, transform.position, transform.rotation);
         gameObject.SetActive(false);

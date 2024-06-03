@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6002396625192825246}
   - component: {fileID: 8436200093652249454}
   - component: {fileID: 8747330406111186907}
-  - component: {fileID: 2723099644970135231}
   - component: {fileID: 8732657595181195555}
-  - component: {fileID: -7972132831621505779}
+  - component: {fileID: 4948123997411090251}
+  - component: {fileID: 4511519069994637608}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Projectile
@@ -138,19 +138,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &2723099644970135231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8550927677561455232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c139ce23ba54149a1a1cbfcd93632d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 3
 --- !u!96 &8732657595181195555
 TrailRenderer:
   serializedVersion: 3
@@ -255,7 +242,7 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &-7972132831621505779
+--- !u!114 &4948123997411090251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,9 +251,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 8550927677561455232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f30d404f3468d418b6635476a4dce3, type: 3}
+  m_Script: {fileID: 11500000, guid: dc5ff1aaafa0de44484a508e98463cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDamage: 10
   projectileSpeed: 10
   projectileDelay: 0.5
+--- !u!114 &4511519069994637608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550927677561455232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25073ed3f0677cc4b85340cac2748520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 3

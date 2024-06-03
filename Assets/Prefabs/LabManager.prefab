@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 4523491957350890593}
   - component: {fileID: 6849974449780857999}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: LabManager
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,11 +607,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7688102532399411196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77a4623a3afe8d4280d9e302c1ff541, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b8bf5d4672eb664fa3e19d8d45b7a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 2
+  moveSpeed: 10
   damageAmount: 20
 --- !u!114 &8276825271883996643
 MonoBehaviour:
@@ -622,12 +622,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7688102532399411196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 692409f6a9e52554496645e48c6de8d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 269f865d6f6418d4fabe021105b18e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodSplatter: {fileID: 6563140752140696787, guid: 24ef27fe0b8b95647aa1cddd5d30a003, type: 3}
-  healthSlider: {fileID: 8453155732789527723}
-  enemyHealth: 100
+  bloodSplatter: {fileID: 0}
+  healthSlider: {fileID: 0}
 --- !u!54 &4523491957350890593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -664,12 +663,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7688102532399411196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df2100826675f741bdb5ecca11307f8, type: 3}
+  m_Script: {fileID: 11500000, guid: f651085305d122042b4b872083215c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 5
-  attackDamage: 40
-  attackSpeed: 1
+  characterType: LabManager
+  currentHealth: 0
+  maxHealth: 0
+  speed: 0
+  jumpHeight: 0
+  attackOneRange: 0
+  attackOneDmg: 0
+  attackOneSpeed: 0
+  attackTwoRange: 0
+  attackTwoDmg: 0
+  attackTwoSpeed: 0
 --- !u!1 &8079690824644464213
 GameObject:
   m_ObjectHideFlags: 0
