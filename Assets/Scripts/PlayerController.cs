@@ -5,24 +5,26 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     CharacterController controller;
+    CharacterAttributes charAttrs;
     Vector3 input, moveDirection;
 
-    public float jumpHeight = 2f;
-
-    public float gravity = 9.8f;
-
-    public float moveSpeed = 12f;
-
-    public float airControl = 10f;
+    float jumpHeight;
+    float moveSpeed;
+    public float gravity = 9.81f;
+    public float airControl = 0.5f;
 
     void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+
+        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        jumpHeight = charAttrs.jumpHeight;
+        moveSpeed = charAttrs.speed;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() 
+    { 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
+
             moveDirection = input;
             if (Input.GetButton("Jump"))
             {

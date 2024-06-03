@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
     // public AudioClip deathSFX;
     public Slider healthSlider;
-
-    int currentHealth;
+    CharacterAttributes charAttrs;
 
     void Start()
     {
-        currentHealth = startingHealth;
+        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+
+        charAttrs.currentHealth = charAttrs.maxHealth;
         if (healthSlider == null ) {
             healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
-        healthSlider.value = currentHealth;
+        healthSlider.value = charAttrs.currentHealth;
     }
 
     // Update is called once per frame
@@ -28,28 +28,28 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0)
+        if (charAttrs.currentHealth > 0)
         {
-            currentHealth -= damage;
-            healthSlider.value = currentHealth;
+            charAttrs.currentHealth -= damage;
+            healthSlider.value = charAttrs.currentHealth;
         }
-        if (currentHealth <= 0)
+        if (charAttrs.currentHealth <= 0)
         {
             PlayerDies();
         }
 
-        Debug.Log("Player health is: " + currentHealth);
+        Debug.Log("Player health is: " + charAttrs.currentHealth);
     }
 
     public void Heal(int health)
     {
-        if (currentHealth < 100)
+        if (charAttrs.currentHealth < 100)
         {
-            currentHealth += health;
-            healthSlider.value = Mathf.Clamp(currentHealth, 0, 100);
+            charAttrs.currentHealth += health;
+            healthSlider.value = Mathf.Clamp(charAttrs.currentHealth, 0, 100);
         }
 
-        Debug.Log("Player health with loot: " + currentHealth);
+        Debug.Log("Player health with loot: " + charAttrs.currentHealth);
     }
 
     void PlayerDies()

@@ -6,11 +6,11 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     public Transform player;
-    public float moveSpeed = 10f;
+    float moveSpeed;
 
     // public float minDistance = 0f;
 
-    public int damageAmount = 20;
+    public int damageAmount;
 
     private static int enemyCount = 0;
 
@@ -21,6 +21,10 @@ public class EnemyBehavior : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        damageAmount = charAttrs.attackOneDmg;
+        moveSpeed = charAttrs.speed;
     }
 
     // Update is called once per frame
@@ -47,7 +51,7 @@ public class EnemyBehavior : MonoBehaviour
         Invoke("Inertia", 0.5f);
     }
 
-    //Stops enemy from skating away in a direction after a heavy collsion or bounce
+    //Stops enemy from skating away in a direction after a heavy collision or bounce
     void Inertia()
     {
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

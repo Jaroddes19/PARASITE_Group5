@@ -12,10 +12,10 @@ public class PlayerAttack : MonoBehaviour
     bool readyToAttack = true;
     void Start()
     {
-        var attack = gameObject.GetComponentInParent<AttackAttributes>();
-        attackDistance = attack.attackDistance;
-        attackDamage = attack.attackDamage;
-        attackSpeed = attack.attackSpeed;
+        var attack = gameObject.GetComponentInParent<CharacterAttributes>();
+        attackDistance = attack.attackOneRange;
+        attackDamage = attack.attackOneDmg;
+        attackSpeed = attack.attackOneSpeed;
     }
 
     // Update is called once per frame
