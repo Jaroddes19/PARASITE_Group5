@@ -12,6 +12,9 @@ public class LootSpawner : MonoBehaviour
     public int spawnAmount = 5;
     public float xMin = -25f;
     public float xMax = 25f;
+
+    public float yMin = -0;
+    public float yMax = 0;
     public float zMin = -25f;
     public float zMax = 25f;
 
@@ -33,7 +36,7 @@ public class LootSpawner : MonoBehaviour
         {
             Vector3 lootPosition;
             lootPosition.x = Random.Range(xMin, xMax);
-            lootPosition.y = 1.3f;
+            lootPosition.y = Random.Range(yMin, yMax);
             lootPosition.z = Random.Range(zMin, zMax);
 
 

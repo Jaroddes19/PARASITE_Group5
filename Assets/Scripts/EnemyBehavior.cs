@@ -16,7 +16,6 @@ public class EnemyBehavior : MonoBehaviour
 
     void Start()
     {
-        enemyCount++;
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -36,13 +35,22 @@ public class EnemyBehavior : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
     }
 
+    private void OnEnable()
+    {
+        enemyCount++;
+        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             var playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(damageAmount);
-            other.gameObject.GetComponent<CharacterController>().Move(-other.transform.forward * 2);
+            if (!LevelManager.isGameOver)
+            {
+                other.gameObject.GetComponent<CharacterController>().Move(-other.transform.forward * 2);
+            }
         }
         Invoke("Inertia", 0.5f);
     }
@@ -51,5 +59,15 @@ public class EnemyBehavior : MonoBehaviour
     void Inertia()
     {
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    void OnDisable()
+    {
+        enemyCount--;
+        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
+        if (enemyCount == 0)
+        {
+            FindObjectOfType<LevelManager>().LevelBeat();
+        }
     }
 }

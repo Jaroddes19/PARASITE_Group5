@@ -46,7 +46,6 @@ public class EnemyHit : MonoBehaviour
         {
             currentHealth -= damage;
             healthSlider.value = currentHealth;
-            transform.position -= transform.forward * 2f;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         if (currentHealth <= 0)
