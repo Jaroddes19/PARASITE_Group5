@@ -3,7 +3,11 @@ guid: 546464442bf1a1b43a8a4ae651ac1051
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
+<<<<<<< HEAD
   serializedVersion: 13
+=======
+  serializedVersion: 12
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -34,7 +38,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
     aniso: 1
     mipBias: 0
     wrapU: 1

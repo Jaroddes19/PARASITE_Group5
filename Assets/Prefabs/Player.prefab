@@ -116,11 +116,17 @@ GameObject:
   - component: {fileID: 8612924208501288418}
   - component: {fileID: 2508020960587884439}
   - component: {fileID: 4674330565950247142}
+<<<<<<< HEAD
   - component: {fileID: 8225515804830523182}
   - component: {fileID: 4028192592008826329}
   - component: {fileID: 113629950129153839}
   - component: {fileID: 2503224888935068191}
   - component: {fileID: 388767471804551208}
+=======
+  - component: {fileID: 186790606279552331}
+  - component: {fileID: 8891588011069508875}
+  - component: {fileID: 7162529631593904857}
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -203,7 +209,11 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360949771906770462}
   m_Enabled: 1
+<<<<<<< HEAD
 --- !u!114 &8225515804830523182
+=======
+--- !u!114 &186790606279552331
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,13 +222,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 360949771906770462}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 1f4bb17bbe06aa54b8249fecde5e1ab9, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: 89bf66e27cca9fd4fbd49f9e6e05063d, type: 3}
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 700
   reticleImage: {fileID: 0}
+<<<<<<< HEAD
   reticleEnemyColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &4028192592008826329
+=======
+  reticleEnemyColor: {r: 0.5754717, g: 0.11672304, b: 0.11672304, a: 0.9372549}
+--- !u!114 &8891588011069508875
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,6 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 360949771906770462}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: bbe0435e93f79cc49ad5718b42be1447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -328,6 +348,13 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!114 &2503224888935068191
+=======
+  m_Script: {fileID: 11500000, guid: 54cb3bcc2f4d3bb418b66b6eeb18daf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8550927677561455232, guid: c0ba271711a8c7e43aed896d39312063, type: 3}
+--- !u!114 &7162529631593904857
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -336,6 +363,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 360949771906770462}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -404,6 +432,14 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 10.17
+=======
+  m_Script: {fileID: 11500000, guid: 4c4e241b65d41fd4ba90a53c7d4e59de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDistance: 2
+  attackDamage: 20
+  attackSpeed: 1
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 --- !u!1 &7545358771692703522
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,10 +452,16 @@ GameObject:
   - component: {fileID: 6419756922137767159}
   - component: {fileID: 606171408342631919}
   - component: {fileID: 5640598696158278730}
+<<<<<<< HEAD
   - component: {fileID: 710661157914778139}
   - component: {fileID: 4418477482185051356}
   - component: {fileID: 368267066466800610}
   - component: {fileID: 3347329749433906834}
+=======
+  - component: {fileID: 4740959663487159770}
+  - component: {fileID: 710661157914778139}
+  - component: {fileID: 5354968258686814863}
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -514,6 +556,25 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!114 &4740959663487159770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545358771692703522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622e6ba16e6e6384eab0e6c5a9425729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 2
+  gravity: 9.8
+  moveSpeed: 10
+  airControl: 10
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 --- !u!143 &710661157914778139
 CharacterController:
   m_ObjectHideFlags: 0
@@ -540,7 +601,11 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &4418477482185051356
+=======
+--- !u!114 &5354968258686814863
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -549,6 +614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7545358771692703522}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f651085305d122042b4b872083215c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -590,3 +656,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 9.8
   airControl: 10
+=======
+  m_Script: {fileID: 11500000, guid: 94ab39dbe905dc946837a338f0ebd2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  healthSlider: {fileID: 0}
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef

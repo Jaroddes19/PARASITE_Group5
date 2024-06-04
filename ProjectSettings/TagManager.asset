@@ -4,11 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - ProjectileParent
   - Projectile
   - EnemySpawner
   - Enemy
   - Exit
+=======
+  - Enemy
+  - Projectile
+  - ProjectileParent
+  - ProjectileEnemy
+>>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
   layers:
   - Default
   - TransparentFX
