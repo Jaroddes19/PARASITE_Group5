@@ -53,12 +53,20 @@ public class LevelManager : MonoBehaviour
 
     public void SetEnemiesText(int enemyCount)
     {
+        if(waveText == null)
+        {
+            return;
+        }
         enemies = enemyCount;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }
 
     public void SetWaveText(int waves)
     {
+        if(waveText == null)
+        {
+            return;
+        }
         this.waves = waves;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }

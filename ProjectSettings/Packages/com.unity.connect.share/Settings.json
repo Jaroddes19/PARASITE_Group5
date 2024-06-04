@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/Parasite;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/PARASITE_FP3;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/FP3_Build_Final;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/FP3_Build;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds;C:/Users/Gusde619/PARASITE_Group5/WebGL Builds/FP3_BUILD_FINAL;C:/Users/Gusde619/PARASITE_Group5/WebGL Builds/FP2_Build;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/FINAL;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/Parasite;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/PARASITE_FP3;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/FP3_Build_Final;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds/FP3_Build;C:/Users/Gusde619/PARASITE_Group5/WebGL_Builds;C:/Users/Gusde619/PARASITE_Group5/WebGL Builds/FP3_BUILD_FINAL;C:/Users/Gusde619/PARASITE_Group5/WebGL Builds/FP2_Build;;\"}"
             }
         ]
     }
