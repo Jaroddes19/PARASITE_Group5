@@ -478,7 +478,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -624,8 +624,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f865d6f6418d4fabe021105b18e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   bloodSplatter: {fileID: 6563140752140696787, guid: 24ef27fe0b8b95647aa1cddd5d30a003, type: 3}
   healthSlider: {fileID: 0}
+=======
+  bloodSplatter: {fileID: 0}
+  healthSlider: {fileID: 8453155732789527723}
+  deathSFX: {fileID: 8300000, guid: da330deb194e84343aca1eefe2cf7366, type: 3}
+>>>>>>> 2b47592655fb7e446e9c3345ab96984efe8ee9e3
 --- !u!54 &4523491957350890593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -777,7 +783,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2

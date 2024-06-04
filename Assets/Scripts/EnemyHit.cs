@@ -9,6 +9,8 @@ public class EnemyHit : MonoBehaviour
     public GameObject bloodSplatter;
     public Slider healthSlider;
 
+    public AudioClip deathSFX;
+
     CharacterAttributes charAttrs;
 
     void Start()
@@ -60,10 +62,7 @@ public class EnemyHit : MonoBehaviour
             //gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (collision != null)
             {
-                if (collision != null)
-                {
-                    gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * 2, ForceMode.Impulse);
-                }
+                gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * 2, ForceMode.Impulse);
             }
             if (charAttrs.currentHealth <= 0)
             {
@@ -73,6 +72,7 @@ public class EnemyHit : MonoBehaviour
 
         void DestroySelf()
         {
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
             Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
             gameObject.SetActive(false);
             Destroy(gameObject, 0.5f);

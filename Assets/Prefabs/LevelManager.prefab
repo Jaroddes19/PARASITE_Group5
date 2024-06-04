@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1735060666053326131
+--- !u!1 &7378088570100230950
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,55 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9198005910079482054}
-  - component: {fileID: 6446242395591029950}
+  - component: {fileID: 3388860841138800172}
+  - component: {fileID: 2454269928268408451}
   m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: EnemySpawner
+  m_Name: LevelManager
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9198005910079482054
+--- !u!4 &3388860841138800172
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735060666053326131}
+  m_GameObject: {fileID: 7378088570100230950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 16.478691, y: -6.6102066, z: 144.75389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6446242395591029950
+--- !u!114 &2454269928268408451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735060666053326131}
+  m_GameObject: {fileID: 7378088570100230950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2379a9f54f89a498759791d03f590f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ecba7e49191e384fa87c159d2d8d535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7688102532399411196, guid: 702df3dfbb1d88a469c52f92c0d7af9f, type: 3}
-<<<<<<< HEAD
-  waves: 1
-  spawnTime: 3
-=======
-  waves: 2
-  spawnTime: 15
->>>>>>> 2b47592655fb7e446e9c3345ab96984efe8ee9e3
-  spawnStart: 1
-  spawnAmount: 5
-  xMin: -21
-  xMax: 10
-  yMin: 2
-  yMax: 2
-  zMin: 14
-  zMax: 96
+  gameText: {fileID: 0}
+  waveText: {fileID: 0}
+  gameOverSFX: {fileID: 0}
+  backgroundSFX: {fileID: 0}
+  gameWinSFX: {fileID: 8300000, guid: 96d80c9022bf7db44b437f195b3c44c4, type: 3}
+  nextLevel: Level1

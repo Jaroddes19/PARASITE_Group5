@@ -42,16 +42,16 @@ public class CharacterAttributes : MonoBehaviour
 
     float para_AtkOneRange = 5f;
     int para_atkOneDmg = 15;
-    float para_atkOneSpeed = 5f;
+    float para_atkOneSpeed = 2f;
     float para_AtkTwoRange = 5f;
     int para_atkTwoDmg = 5;
-    float para_atkTwoSpeed = 5f;
+    float para_atkTwoSpeed = 3f;
 
     // LAB MANAGER (example, can change):
     int lm_MaxHp = 100;
     int lm_CurHp = 100;
 
-    float lm_Speed = 1f;
+    float lm_Speed = 3f;
     float lm_JmpHgt = 1f;
 
     float lm_AtkOneRange = 3f;

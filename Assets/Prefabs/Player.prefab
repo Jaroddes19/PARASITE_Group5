@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 700
   reticleImage: {fileID: 0}
-  reticleEnemyColor: {r: 0, g: 0, b: 0, a: 0}
+  reticleEnemyColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &4028192592008826329
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class ShootProjectile : MonoBehaviour
 {
     public GameObject projectilePrefab;
 
+    public AudioClip shootSFX;
+
     float projectileSpeed;
     float projectileDelay;
 
@@ -31,6 +33,8 @@ public class ShootProjectile : MonoBehaviour
     {
         if (readyToFire)
         {
+            AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position);
+
             readyToFire = false;
             Invoke("ResetFire", projectileDelay);
             gameObject.GetComponentInChildren<Animator>().SetTrigger("playerFire");
@@ -41,7 +45,7 @@ public class ShootProjectile : MonoBehaviour
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.VelocityChange);
 
             projectile.transform.SetParent(GameObject.FindGameObjectWithTag("ProjectileParent").transform);
-            
+
         }
     }
 

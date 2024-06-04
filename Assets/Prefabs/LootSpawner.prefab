@@ -47,7 +47,11 @@ MonoBehaviour:
   lootPrefab: {fileID: 5952632067992334279, guid: 0f8443c36ec9eaa4fac4456b7d1b32fe, type: 3}
   spawnTime: 3
   spawnStart: 1
+<<<<<<< HEAD
   spawnAmount: 5
+=======
+  spawnAmount: 2
+>>>>>>> 2b47592655fb7e446e9c3345ab96984efe8ee9e3
   xMin: -21
   xMax: 10
   yMin: 2
