@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
         gameText.color = Color.red;
         gameText.gameObject.SetActive(true);
 
-        // Camera.main.GetComponent<AudioSource>().pitch = 0.5f;
+        Camera.main.GetComponent<AudioSource>().pitch = 0.5f;
         // AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
 
         Invoke("loadCurrentLevel", 2);
@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
         {
             isGameOver = true;
             Invoke("beatLevelText", 1);
-            // Camera.main.GetComponent<AudioSource>().pitch = 2f;
+            Camera.main.GetComponent<AudioSource>().pitch = 2f;
             // AudioSource.PlayClipAtPoint(gameWinSFX, Camera.main.transform.position);
         }
 

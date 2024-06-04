@@ -14,7 +14,6 @@ public class ExitDoorBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(LevelManager.isGameOver);
         if (LevelManager.isGameOver)
         {
             foreach (Transform child in transform) {

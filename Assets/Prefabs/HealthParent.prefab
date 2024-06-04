@@ -119,8 +119,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6763415017422871983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b31c7a076d251c44b5a99dd9c727804, type: 3}
+  m_Script: {fileID: 11500000, guid: 496a2a6ac45a8874ea9b1cb063fa3d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 15
-  lootSFX: {fileID: 8300000, guid: 89e59da6dd88e9e42b1a5f3483f78173, type: 3}
+  healthAmount: 10
+  lootSFX: {fileID: 0}

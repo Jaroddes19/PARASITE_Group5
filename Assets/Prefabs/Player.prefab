@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 700
   reticleImage: {fileID: 0}
-  reticleEnemyColor: {r: 0, g: 0, b: 0, a: 0}
+  reticleEnemyColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &4028192592008826329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +412,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29e11f37c24e0d49b8e2bd2d4bfaaf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 2
   gravity: 9.8
-  moveSpeed: 12
   airControl: 10

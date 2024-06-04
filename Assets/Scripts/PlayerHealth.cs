@@ -9,11 +9,12 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthSlider;
     CharacterAttributes charAttrs;
 
+    private int startingHealth;
     void Start()
     {
         charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        healthSlider.maxValue = charAttrs.maxHealth;
 
-        charAttrs.currentHealth = charAttrs.currentHealth;
         if (healthSlider == null ) {
             healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
@@ -43,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(int health)
     {
-        if (charAttrs.currentHealth < 100)
+        if (charAttrs.currentHealth < charAttrs.maxHealth)
         {
             charAttrs.currentHealth += health;
             healthSlider.value = Mathf.Clamp(charAttrs.currentHealth, 0, 100);
