@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f865d6f6418d4fabe021105b18e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bloodSplatter: {fileID: 0}
+  bloodSplatter: {fileID: 6563140752140696787, guid: 24ef27fe0b8b95647aa1cddd5d30a003, type: 3}
   healthSlider: {fileID: 0}
 --- !u!54 &4523491957350890593
 Rigidbody:
