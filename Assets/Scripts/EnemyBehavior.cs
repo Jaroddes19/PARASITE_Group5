@@ -28,6 +28,7 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -67,7 +68,6 @@ public class EnemyBehavior : MonoBehaviour
     void OnDisable()
     {
         enemyCount--;
-        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
         if (enemyCount == 0)
         {
             FindObjectOfType<LevelManager>().LevelBeat();

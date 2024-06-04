@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2454269928268408451}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,5 @@ MonoBehaviour:
   gameText: {fileID: 0}
   waveText: {fileID: 0}
   gameOverSFX: {fileID: 0}
-  backgroundSFX: {fileID: 0}
   gameWinSFX: {fileID: 8300000, guid: 96d80c9022bf7db44b437f195b3c44c4, type: 3}
   nextLevel: Level1
