@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootPrefab: {fileID: 5952632067992334279, guid: 0f8443c36ec9eaa4fac4456b7d1b32fe, type: 3}
-  spawnTime: 3
+  spawnTime: 30
   spawnStart: 1
-  spawnAmount: 5
+  spawnAmount: 2
   xMin: -21
   xMax: 10
   yMin: 2

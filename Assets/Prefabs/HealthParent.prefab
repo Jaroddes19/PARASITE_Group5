@@ -123,4 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthAmount: 10
-  lootSFX: {fileID: 0}
+  lootSFX: {fileID: 8300000, guid: 89e59da6dd88e9e42b1a5f3483f78173, type: 3}

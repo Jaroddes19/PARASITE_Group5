@@ -625,7 +625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodSplatter: {fileID: 0}
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 8453155732789527723}
+  deathSFX: {fileID: 8300000, guid: da330deb194e84343aca1eefe2cf7366, type: 3}
 --- !u!54 &4523491957350890593
 Rigidbody:
   m_ObjectHideFlags: 0

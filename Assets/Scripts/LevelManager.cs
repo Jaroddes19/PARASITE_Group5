@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip gameOverSFX;
 
+    public AudioSource backgroundSFX;
+
     public AudioClip gameWinSFX;
 
     public static bool isGameOver = false;
@@ -26,6 +28,9 @@ public class LevelManager : MonoBehaviour
     {
         isGameOver = false;
         gameText.color = Color.green;
+
+        backgroundSFX = Camera.main.GetComponent<AudioSource>();
+        backgroundSFX.Play();
     }
 
     // Update is called once per frame
@@ -69,10 +74,10 @@ public class LevelManager : MonoBehaviour
         gameText.color = Color.red;
         gameText.gameObject.SetActive(true);
 
-        Camera.main.GetComponent<AudioSource>().pitch = 0.5f;
+        Camera.main.GetComponent<AudioSource>().pitch = -0.5f;
         // AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
 
-        Invoke("loadCurrentLevel", 2);
+        Invoke("loadCurrentLevel", 3);
     }
 
     public void LevelBeat()
@@ -81,8 +86,8 @@ public class LevelManager : MonoBehaviour
         {
             isGameOver = true;
             Invoke("beatLevelText", 1);
-            Camera.main.GetComponent<AudioSource>().pitch = 2f;
-            // AudioSource.PlayClipAtPoint(gameWinSFX, Camera.main.transform.position);
+            Camera.main.GetComponent<AudioSource>().pitch = 3f;
+            AudioSource.PlayClipAtPoint(gameWinSFX, GameObject.FindGameObjectWithTag("Exit").transform.position);
         }
 
     }

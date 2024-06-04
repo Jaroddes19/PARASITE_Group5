@@ -9,6 +9,8 @@ public class EnemyHit : MonoBehaviour
     public GameObject bloodSplatter;
     public Slider healthSlider;
 
+    public AudioClip deathSFX;
+
     CharacterAttributes charAttrs;
 
     void Start()
@@ -62,17 +64,18 @@ public class EnemyHit : MonoBehaviour
             {
                 gameObject.GetComponent<Rigidbody>().AddForce(collision.contacts[0].normal * 2, ForceMode.Impulse);
             }
+            if (charAttrs.currentHealth <= 0)
+            {
+                DestroySelf();
+            }
         }
-        if (charAttrs.currentHealth <= 0)
-        {
-            DestroySelf();
-        }
-    }
 
-    void DestroySelf()
-    {
-        Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
-        gameObject.SetActive(false);
-        Destroy(gameObject, 0.5f);
+        void DestroySelf()
+        {
+            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+            Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
+            gameObject.SetActive(false);
+            Destroy(gameObject, 0.5f);
+        }
     }
 }

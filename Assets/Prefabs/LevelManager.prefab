@@ -47,5 +47,6 @@ MonoBehaviour:
   gameText: {fileID: 0}
   waveText: {fileID: 0}
   gameOverSFX: {fileID: 0}
-  gameWinSFX: {fileID: 0}
+  backgroundSFX: {fileID: 0}
+  gameWinSFX: {fileID: 8300000, guid: 96d80c9022bf7db44b437f195b3c44c4, type: 3}
   nextLevel: Level1
