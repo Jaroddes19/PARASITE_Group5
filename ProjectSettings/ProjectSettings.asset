@@ -707,10 +707,14 @@ PlayerSettings:
   spritePackerPolicy: 
 <<<<<<< HEAD
   webGLMemorySize: 32
+<<<<<<< HEAD
 =======
   webGLMemorySize: 16
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
   webGLExceptionSupport: 1
+=======
+  webGLExceptionSupport: 0
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
   webGLNameFilesAsHashes: 0
   webGLShowDiagnostics: 0
   webGLDataCaching: 1

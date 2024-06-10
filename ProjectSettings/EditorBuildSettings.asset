@@ -7,9 +7,14 @@ EditorBuildSettings:
 <<<<<<< HEAD
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
 =======
   m_Scenes: []
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
+=======
+    path: Assets/Scenes/Level1.unity
+    guid: 24092db972741294abf4fa2059dd7c05
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
   m_configObjects: {}

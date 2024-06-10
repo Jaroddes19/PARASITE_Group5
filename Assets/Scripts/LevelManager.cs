@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip gameOverSFX;
 
+<<<<<<< HEAD
     public AudioSource backgroundSFX;
 
 =======
@@ -27,6 +28,8 @@ public class LevelManager : MonoBehaviour
     public AudioClip gameOverSFX;
 
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
+=======
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
     public AudioClip gameWinSFX;
 
     public static bool isGameOver = false;
@@ -44,8 +47,14 @@ public class LevelManager : MonoBehaviour
 
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
 
+    AudioSource backgroundSFX;
+
     void Start()
     {
+        if (gameText == null)
+        {
+            Debug.LogError("GameText is not set in the LevelManager");
+        }
         isGameOver = false;
 <<<<<<< HEAD
         gameText.color = Color.green;
@@ -75,13 +84,20 @@ public class LevelManager : MonoBehaviour
 
     public void SetEnemiesText(int enemyCount)
     {
+        if(waveText == null)
+        {
+            return;
+        }
         enemies = enemyCount;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
-
     }
 
     public void SetWaveText(int waves)
     {
+        if(waveText == null)
+        {
+            return;
+        }
         this.waves = waves;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }

@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
 
-    public int waves = 2; 
+    public int waves = 2;
     public float spawnTime = 3f;
 
     public float spawnStart = 1f;
@@ -22,10 +22,10 @@ public class EnemySpawner : MonoBehaviour
 
     int spawns;
 
-// Level 1
-// Z: 14 - 96
-// X: -21 - 10
-// Y: 2
+    // Level 1
+    // Z: 14 - 96
+    // X: -21 - 10
+    // Y: 2
 
     void Start()
     {
@@ -36,7 +36,6 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void SpawnEnemies()
@@ -53,6 +52,8 @@ public class EnemySpawner : MonoBehaviour
 
             spawnedEnemy.transform.parent = gameObject.transform;
         }
+        FindObjectOfType<LevelManager>().SetWaveText(waves);
+
 
     }
 
@@ -62,7 +63,6 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawns; i++)
         {
             waves--;
-            FindObjectOfType<LevelManager>().SetWaveText(waves);
             SpawnEnemies();
             yield return new WaitForSeconds(spawnTime);
         }

@@ -119,6 +119,7 @@ GameObject:
 <<<<<<< HEAD
   - component: {fileID: 8225515804830523182}
   - component: {fileID: 4028192592008826329}
+<<<<<<< HEAD
   - component: {fileID: 113629950129153839}
   - component: {fileID: 2503224888935068191}
   - component: {fileID: 388767471804551208}
@@ -127,6 +128,10 @@ GameObject:
   - component: {fileID: 8891588011069508875}
   - component: {fileID: 7162529631593904857}
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
+=======
+  - component: {fileID: 5442676250443221688}
+  - component: {fileID: 7644345692655947676}
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -232,7 +237,11 @@ MonoBehaviour:
   mouseSensitivity: 700
   reticleImage: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   reticleEnemyColor: {r: 1, g: 0, b: 0, a: 0}
+=======
+  reticleEnemyColor: {r: 1, g: 0, b: 0, a: 1}
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
 --- !u!114 &4028192592008826329
 =======
   reticleEnemyColor: {r: 0.5754717, g: 0.11672304, b: 0.11672304, a: 0.9372549}
@@ -251,7 +260,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8550927677561455232, guid: c0ba271711a8c7e43aed896d39312063, type: 3}
+<<<<<<< HEAD
 --- !u!82 &113629950129153839
+=======
+  shootSFX: {fileID: 8300000, guid: 67cc81bef0a24c94b9fe32de08fce6e9, type: 3}
+--- !u!82 &5442676250443221688
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,7 +277,11 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 27a2b5b9cf2386f49ae78ca7f17f3b4d, type: 3}
   m_PlayOnAwake: 1
+<<<<<<< HEAD
   m_Volume: 1
+=======
+  m_Volume: 0.5
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -347,6 +365,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
 --- !u!114 &2503224888935068191
 =======
   m_Script: {fileID: 11500000, guid: 54cb3bcc2f4d3bb418b66b6eeb18daf2, type: 3}
@@ -355,6 +374,9 @@ AudioSource:
   projectilePrefab: {fileID: 8550927677561455232, guid: c0ba271711a8c7e43aed896d39312063, type: 3}
 --- !u!114 &7162529631593904857
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
+=======
+--- !u!114 &7644345692655947676
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,6 +385,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 360949771906770462}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -440,6 +463,14 @@ MonoBehaviour:
   attackDamage: 20
   attackSpeed: 1
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
+=======
+  m_Script: {fileID: 11500000, guid: 9664e670087056745b7bde906835dfaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpParasiteThreshold: 0.5
+  attackSFX: {fileID: 8300000, guid: b1f00b4b70bb35645b77754555644d7a, type: 3}
+  parasiteSFX: {fileID: 8300000, guid: c7a7ff4f3f7dc324ea19f8ff83b9994e, type: 3}
+>>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
 --- !u!1 &7545358771692703522
 GameObject:
   m_ObjectHideFlags: 0
