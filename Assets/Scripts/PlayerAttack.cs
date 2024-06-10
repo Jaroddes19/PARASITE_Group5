@@ -58,7 +58,6 @@ public class PlayerAttack : MonoBehaviour
         // if the attack hits
         if (Physics.Raycast(transform.position, transform.forward, out parasiteAtk, attackDistance))
         {
-            // do we meet the conditions to parisitize this enemy? (currently a stub method)
             // get the top level gameobject (in case an arm, etc is collided with)
             var root = parasiteAtk.transform.root.gameObject;
             if (canParisitize(root))
@@ -79,7 +78,6 @@ public class PlayerAttack : MonoBehaviour
      */
     void Parasitize(GameObject newPlayerObj)
     {
-        // Debug.Log("Running parasite operations");
         // remove enemy scripts
         Destroy(newPlayerObj.GetComponent<EnemyBehavior>());
         Destroy(newPlayerObj.GetComponent<EnemyHit>());
@@ -125,7 +123,7 @@ public class PlayerAttack : MonoBehaviour
 
 
         /*
-        gameObject.tag = "Enemy"; // in case the player ever has the option to leave a vicitm alive
+        gameObject.tag = "Enemy"; // in case the player ever has the option to leave a victim alive
 
         // make old victim back to an enemy
         gameObject.AddComponent<EnemyBehavior>();

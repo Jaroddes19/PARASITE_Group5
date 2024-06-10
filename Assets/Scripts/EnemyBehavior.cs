@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ public class EnemyBehavior : MonoBehaviour
 
     private static int enemyCount = 0;
 
+    CharacterAttributes charAttrs;
+
+    float atkCooldown;
+
     void Start()
     {
         enemyCount++;
@@ -22,7 +27,7 @@ public class EnemyBehavior : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
-        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
         damageAmount = charAttrs.attackOneDmg;
         moveSpeed = charAttrs.speed;
     }
@@ -30,6 +35,9 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        atkCooldown -= Time.deltaTime;
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -38,6 +46,12 @@ public class EnemyBehavior : MonoBehaviour
 
         transform.LookAt(player);
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+
+        if (Vector3.Distance(transform.position, player.position) < 5 && atkCooldown < 0)
+        {
+            atkCooldown = charAttrs.abilityCooldown;
+            charAttrs.AttackOne();
+        }
     }
 
     private void OnCollisionEnter(Collision other)
