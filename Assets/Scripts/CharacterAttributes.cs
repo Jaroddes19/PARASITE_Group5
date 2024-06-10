@@ -42,10 +42,10 @@ public class CharacterAttributes : MonoBehaviour
 
     float para_AtkOneRange = 5f;
     int para_atkOneDmg = 15;
-    float para_atkOneSpeed = 2f;
-    float para_AtkTwoRange = 5f;
+    float para_atkOneSpeed = 0.5f;
+    float para_AtkTwoRange = 7f;
     int para_atkTwoDmg = 5;
-    float para_atkTwoSpeed = 3f;
+    float para_atkTwoSpeed = 1.5f;
 
     // LAB MANAGER (example, can change):
     int lm_MaxHp = 100;
@@ -61,6 +61,18 @@ public class CharacterAttributes : MonoBehaviour
     int lm_atkTwoDmg = 10;
     float lm_atkTwoSpeed = 8f;
 
+    int ff_MaxHp = 30;
+    int ff_CurHp = 30;
+
+    float ff_Speed = 10f;
+    float ff_JmpHgt = 4f;
+
+    float ff_AtkOneRange = 3f;
+    int ff_atkOneDmg = 5;
+    float ff_atkOneSpeed = 2f;
+    float ff_AtkTwoRange = 10f;
+    int ff_atkTwoDmg = 10;
+    float ff_atkTwoSpeed = 2f;
     // NEXT ENEMY TYPE HERE
 
     // Assigns values to the public, readable variables at creation
@@ -102,6 +114,25 @@ public class CharacterAttributes : MonoBehaviour
             attackTwoRange = lm_AtkTwoRange;
             attackTwoDmg = lm_atkTwoDmg;
             attackTwoSpeed = lm_atkTwoSpeed;
+        } 
+        else if (characterType == "FlyingFlotus") {
+            //health
+            currentHealth = ff_CurHp;
+            maxHealth = ff_MaxHp;
+
+            //movement
+            speed = ff_Speed;
+            jumpHeight = ff_JmpHgt;
+
+            //attacking
+            //first attack
+            attackOneRange = ff_AtkOneRange;
+            attackOneDmg = ff_atkOneDmg;
+            attackOneSpeed = ff_atkOneSpeed;
+            //second attack
+            attackTwoRange = ff_AtkTwoRange;
+            attackTwoDmg = ff_atkTwoDmg;
+            attackTwoSpeed = ff_atkTwoSpeed;
         } 
         else {
             throw new ArgumentException("Invalid character type provided: " + characterType);

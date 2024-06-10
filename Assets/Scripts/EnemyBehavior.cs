@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
     public Transform player;
-    float moveSpeed;
 
     // public float minDistance = 0f;
 
     public int damageAmount;
 
-    private static int enemyCount = 0;
 
     void Start()
     {
@@ -19,31 +18,31 @@ public class EnemyBehavior : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-
-        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        var charAttrs = gameObject.GetComponent<CharacterAttributes>();
         damageAmount = charAttrs.attackOneDmg;
-        moveSpeed = charAttrs.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
+        if (LevelManager.isGameOver)
+        {
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        }
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        float step = moveSpeed * Time.deltaTime;
+        // float step = moveSpeed * Time.deltaTime;
 
-        transform.LookAt(player);
-        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+        // transform.LookAt(player);
+        // transform.position = Vector3.MoveTowards(transform.position, player.position, step);
     }
 
-    private void OnEnable()
-    {
-        enemyCount++;
-        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
-    }
+    // private void OnEnable()
+    // {
+
+    // }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -65,12 +64,4 @@ public class EnemyBehavior : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
-    void OnDisable()
-    {
-        enemyCount--;
-        if (enemyCount == 0)
-        {
-            FindObjectOfType<LevelManager>().LevelBeat();
-        }
-    }
 }

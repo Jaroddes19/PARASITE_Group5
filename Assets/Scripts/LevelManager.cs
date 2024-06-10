@@ -26,9 +26,14 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        if (waveText == null)
+        {
+            waveText = GameObject.Find("WaveText").GetComponent<Text>();
+        }
         if (gameText == null)
         {
-            Debug.LogError("GameText is not set in the LevelManager");
+            gameText = GameObject.Find("GameText").GetComponent<Text>();
+
         }
         isGameOver = false;
         gameText.color = Color.green;
@@ -40,43 +45,24 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (isGameOver)
-        // {
-        //     FindObjectOfType<EnemySpawner>().enabled = false;
-        //     foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-        //     {
-        //         Destroy(enemy);
-        //     }
-        // }
+
     }
 
 
     public void SetEnemiesText(int enemyCount)
     {
-        if(waveText == null)
-        {
-            return;
-        }
         enemies = enemyCount;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }
 
     public void SetWaveText(int waves)
     {
-        if(waveText == null)
-        {
-            return;
-        }
+
         this.waves = waves;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }
 
-    void beatLevelText()
-    {
-        waveText.gameObject.SetActive(false);
-        gameText.text = "Floor Cleared\nProceed to exit!";
-        gameText.gameObject.SetActive(true);
-    }
+
 
     public void LevelLost()
     {
@@ -101,6 +87,13 @@ public class LevelManager : MonoBehaviour
             AudioSource.PlayClipAtPoint(gameWinSFX, GameObject.FindGameObjectWithTag("Exit").transform.position);
         }
 
+    }
+
+    void beatLevelText()
+    {
+        waveText.gameObject.SetActive(false);
+        gameText.text = "Floor Cleared\nProceed to exit!";
+        gameText.gameObject.SetActive(true);
     }
 
     public void loadNextLevel()
