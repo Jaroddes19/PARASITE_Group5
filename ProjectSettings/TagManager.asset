@@ -10,6 +10,10 @@ TagManager:
   - Enemy
   - Exit
   - LevelManager
+  - WanderPoint
+  - Stinger
+  - WaveText
+  - GameText
   layers:
   - Default
   - TransparentFX

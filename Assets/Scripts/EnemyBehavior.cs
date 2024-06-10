@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
     public Transform player;
-    float moveSpeed;
 
     // public float minDistance = 0f;
 
     public int damageAmount;
 
-    private static int enemyCount = 0;
 
     CharacterAttributes charAttrs;
 
@@ -25,10 +24,8 @@ public class EnemyBehavior : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-
-        charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        charAttrs = gameObject.GetComponent<CharacterAttributes>();
         damageAmount = charAttrs.attackOneDmg;
-        moveSpeed = charAttrs.speed;
     }
 
     // Update is called once per frame
@@ -38,27 +35,33 @@ public class EnemyBehavior : MonoBehaviour
         atkCooldown -= Time.deltaTime;
 
         FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
-        if (player == null)
+        if (LevelManager.isGameOver)
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         }
-        float step = moveSpeed * Time.deltaTime;
+        else {
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+            // float step = moveSpeed * Time.deltaTime;
 
-        transform.LookAt(player);
-        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+            transform.LookAt(player);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, step);
 
-        if (Vector3.Distance(transform.position, player.position) < 5 && atkCooldown < 0)
-        {
-            atkCooldown = charAttrs.abilityCooldown;
-            charAttrs.AttackOne();
+            if (Vector3.Distance(transform.position, player.position) < 5 && atkCooldown < 0)
+            {
+                atkCooldown = charAttrs.abilityCooldown;
+                charAttrs.AttackOne();
+            }
+
         }
     }
 
-    private void OnEnable()
-    {
-        enemyCount++;
-        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
-    }
+    // private void OnEnable()
+    // {
+
+    // }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -80,12 +83,4 @@ public class EnemyBehavior : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
-    void OnDisable()
-    {
-        enemyCount--;
-        if (enemyCount == 0)
-        {
-            FindObjectOfType<LevelManager>().LevelBeat();
-        }
-    }
 }
