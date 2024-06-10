@@ -23,6 +23,8 @@ public class EnemyHit : MonoBehaviour
             healthSlider = gameObject.GetComponentInChildren<Slider>();
         }
         healthSlider.value = charAttrs.currentHealth;
+        healthSlider.maxValue = charAttrs.maxHealth;
+
         if (bloodSplatter == null)
         {
             bloodSplatter = Resources.Load("BloodSplatter") as GameObject;
