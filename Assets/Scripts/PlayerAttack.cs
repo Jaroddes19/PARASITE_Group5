@@ -88,6 +88,7 @@ public class PlayerAttack : MonoBehaviour
         AudioSource.PlayClipAtPoint(parasiteSFX, Camera.main.transform.position);
         // Debug.Log("Running parasite operations");
         // remove enemy scripts
+        newPlayerObj.GetComponent<EnemyHit>().Parasitized();
         Destroy(newPlayerObj.GetComponent<EnemyBehavior>());
         Destroy(newPlayerObj.GetComponent<EnemyHit>());
         Destroy(newPlayerObj.GetComponent<Rigidbody>());
@@ -116,6 +117,7 @@ public class PlayerAttack : MonoBehaviour
         gameObject.transform.localPosition = new Vector3(0, 0, 0);
 
         newPlayerObj.tag = "Player";
+        
 
         // if (Need to find a way to distinguish parasite and old enemy that the player is controlling)
         // {

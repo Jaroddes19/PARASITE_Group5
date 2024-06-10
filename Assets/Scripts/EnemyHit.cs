@@ -83,19 +83,26 @@ public class EnemyHit : MonoBehaviour
                 DestroySelf();
             }
         }
-
-        void DestroySelf()
-        {
-            enemyCount--;
-            FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
-            if (enemyCount == 0)
-            {
-                FindObjectOfType<LevelManager>().LevelBeat();
-            }
-            AudioSource.PlayClipAtPoint(deathSFX, transform.position);
-            Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
-            gameObject.SetActive(false);
-            Destroy(gameObject, 0.5f);
-        }
     }
+    void DestroySelf()
+    {
+        enemyCount--;
+        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
+        if (enemyCount == 0)
+        {
+            FindObjectOfType<LevelManager>().LevelBeat();
+        }
+        AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+        Instantiate(bloodSplatter, transform.position, transform.rotation).SetActive(true);
+        gameObject.SetActive(false);
+        Destroy(gameObject, 0.5f);
+    }
+
+    public void Parasitized()
+    {
+        enemyCount--;
+    }
+
+
+
 }
