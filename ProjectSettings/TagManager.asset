@@ -3,23 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - ProjectileParent
-  - Projectile
-  - EnemySpawner
-  - Enemy
-  - Exit
-<<<<<<< HEAD
-=======
-  - Enemy
-  - Projectile
-  - ProjectileParent
-  - ProjectileEnemy
->>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
-=======
-  - LevelManager
->>>>>>> 2b899a80f7c0fd9b2443469b583c45f42d75a4ee
+  tags: []
   layers:
   - Default
   - TransparentFX
