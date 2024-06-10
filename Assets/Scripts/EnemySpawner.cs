@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
 
     public int waves = 2;
     public float spawnTime = 3f;
@@ -48,7 +48,9 @@ public class EnemySpawner : MonoBehaviour
             enemyPosition.z = Random.Range(zMin, zMax);
 
 
-            GameObject spawnedEnemy = Instantiate(enemyPrefab, enemyPosition, transform.rotation) as GameObject;
+            GameObject spawnedEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], enemyPosition, transform.rotation) as GameObject;
+
+            Debug.Log("Spawned enemy at " + enemyPosition); 
 
             spawnedEnemy.transform.parent = gameObject.transform;
         }

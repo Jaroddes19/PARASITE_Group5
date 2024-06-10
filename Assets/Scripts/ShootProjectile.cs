@@ -15,10 +15,13 @@ public class ShootProjectile : MonoBehaviour
 
     bool readyToFire = true;
 
+    CharacterAttributes charAttrs;
+
     void Start()
     {
+        charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
         projectileSpeed = projectilePrefab.GetComponent<ProjectileAttributes>().projectileSpeed;
-        projectileDelay = projectilePrefab.GetComponent<ProjectileAttributes>().projectileDelay;
+        projectileDelay = charAttrs.attackTwoSpeed;
     }
 
     // Update is called once per frame

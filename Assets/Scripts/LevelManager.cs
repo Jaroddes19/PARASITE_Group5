@@ -51,9 +51,14 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        if (waveText == null)
+        {
+            waveText = GameObject.Find("WaveText").GetComponent<Text>();
+        }
         if (gameText == null)
         {
-            Debug.LogError("GameText is not set in the LevelManager");
+            gameText = GameObject.Find("GameText").GetComponent<Text>();
+
         }
         isGameOver = false;
 <<<<<<< HEAD
@@ -71,6 +76,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // if (isGameOver)
         // {
         //     FindObjectOfType<EnemySpawner>().enabled = false;
@@ -79,29 +85,26 @@ public class LevelManager : MonoBehaviour
         //         Destroy(enemy);
         //     }
         // }
+=======
+
+>>>>>>> 9c62eb2a5a17e4dd723d1db12bce69f157028f8a
     }
 
 
     public void SetEnemiesText(int enemyCount)
     {
-        if(waveText == null)
-        {
-            return;
-        }
         enemies = enemyCount;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }
 
     public void SetWaveText(int waves)
     {
-        if(waveText == null)
-        {
-            return;
-        }
+
         this.waves = waves;
         waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }
 
+<<<<<<< HEAD
     void beatLevelText()
     {
         waveText.gameObject.SetActive(false);
@@ -150,6 +153,9 @@ public class LevelManager : MonoBehaviour
 
 >>>>>>> e727db38aa2f6e6ab94f60a900d04b142a236eef
     }
+=======
+
+>>>>>>> 9c62eb2a5a17e4dd723d1db12bce69f157028f8a
 
     public void LevelLost()
     {
@@ -185,6 +191,13 @@ public class LevelManager : MonoBehaviour
             AudioSource.PlayClipAtPoint(gameWinSFX, GameObject.FindGameObjectWithTag("Exit").transform.position);
         }
 
+    }
+
+    void beatLevelText()
+    {
+        waveText.gameObject.SetActive(false);
+        gameText.text = "Floor Cleared\nProceed to exit!";
+        gameText.gameObject.SetActive(true);
     }
 
     public void loadNextLevel()
