@@ -47,10 +47,10 @@ public class CharacterAttributes : MonoBehaviour
 
     float para_AtkOneRange = 5f;
     int para_atkOneDmg = 15;
-    float para_atkOneSpeed = 5f;
+    float para_atkOneSpeed = 2f;
     float para_AtkTwoRange = 5f;
     int para_atkTwoDmg = 5;
-    float para_atkTwoSpeed = 5f;
+    float para_atkTwoSpeed = 3f;
 
     float para_ablCooldown = 4f;
 

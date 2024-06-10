@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Projectile
   - ProjectileParent
+  - Projectile
+  - EnemySpawner
   - Enemy
+  - Exit
+  - LevelManager
   layers:
   - Default
   - TransparentFX

@@ -6,13 +6,9 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public float levelDuration = 10.0f;
-
-    public Text timerText;
-
     public Text gameText;
 
-    public Text scoreText;
+    public Text waveText;
 
     public AudioClip gameOverSFX;
 
@@ -21,95 +17,99 @@ public class LevelManager : MonoBehaviour
     public static bool isGameOver = false;
 
     public string nextLevel;
-    float countdown;
 
-    int score = 0;
+    int waves = 0;
 
+    int enemies;
+
+    AudioSource backgroundSFX;
 
     void Start()
     {
+        if (gameText == null)
+        {
+            Debug.LogError("GameText is not set in the LevelManager");
+        }
         isGameOver = false;
-        countdown = levelDuration;
-        SetTimerText();
+        gameText.color = Color.green;
+
+        backgroundSFX = Camera.main.GetComponent<AudioSource>();
+        backgroundSFX.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isGameOver)
+        // if (isGameOver)
+        // {
+        //     FindObjectOfType<EnemySpawner>().enabled = false;
+        //     foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        //     {
+        //         Destroy(enemy);
+        //     }
+        // }
+    }
+
+
+    public void SetEnemiesText(int enemyCount)
+    {
+        if(waveText == null)
         {
-            if (countdown > 0)
-            {
-                countdown -= Time.deltaTime;
-            }
-            else
-            {
-                countdown = 0.0f;
-                LevelLost();
-            }
-
-            SetTimerText();
+            return;
         }
-
-        // Debug.Log("Time remaining: " + countdown);
+        enemies = enemyCount;
+        waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
     }
 
-    private void OnGUI()
+    public void SetWaveText(int waves)
     {
-        // GUI.Box(new Rect(10, 10, 100, 20), "Time: " + countdown.ToString("0.00"));
-    }
-
-    void SetTimerText()
-    {
-        timerText.text = "Time: " + countdown.ToString("f2");
-
-    }
-
-    public void SetScoreText(int scoreValue)
-    {
-        if (countdown > levelDuration / 2)
+        if(waveText == null)
         {
-            score += scoreValue * 2;
+            return;
         }
-        else {
-            score += scoreValue;
-        }
-        scoreText.text = "Score: " + score;
+        this.waves = waves;
+        waveText.text = "Waves remaining: " + waves + "!\nEnemies remaining: " + enemies;
+    }
 
+    void beatLevelText()
+    {
+        waveText.gameObject.SetActive(false);
+        gameText.text = "Floor Cleared\nProceed to exit!";
+        gameText.gameObject.SetActive(true);
     }
 
     public void LevelLost()
     {
         isGameOver = true;
-        gameText.text = "You Lose!";
+        gameText.text = "You are DEAD!";
+        gameText.color = Color.red;
         gameText.gameObject.SetActive(true);
 
-        Camera.main.GetComponent<AudioSource>().pitch = 0.5f;
-        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
+        Camera.main.GetComponent<AudioSource>().pitch = -0.5f;
+        // AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position);
 
-        Invoke("loadCurrentLevel", 2);
+        Invoke("loadCurrentLevel", 3);
     }
 
     public void LevelBeat()
     {
-        isGameOver = true;
-        gameText.text = "You Win!";
-        gameText.gameObject.SetActive(true);
-
-        Camera.main.GetComponent<AudioSource>().pitch = 2f;
-        AudioSource.PlayClipAtPoint(gameWinSFX, Camera.main.transform.position);
-
-        if (!string.IsNullOrEmpty(nextLevel))
+        if (waves == 0)
         {
-            Invoke("loadNextLevel", 2);
-
+            isGameOver = true;
+            Invoke("beatLevelText", 1);
+            Camera.main.GetComponent<AudioSource>().pitch = 3f;
+            AudioSource.PlayClipAtPoint(gameWinSFX, GameObject.FindGameObjectWithTag("Exit").transform.position);
         }
+
     }
 
-    void loadNextLevel()
+    public void loadNextLevel()
     {
-        SceneManager.LoadScene(nextLevel);
+        if (!string.IsNullOrEmpty(nextLevel))
+        {
+            SceneManager.LoadScene(nextLevel);
 
+        }
     }
 
     void loadCurrentLevel()
