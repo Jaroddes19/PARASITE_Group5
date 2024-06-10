@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -90,6 +91,11 @@ public class PlayerAttack : MonoBehaviour
         Destroy(newPlayerObj.GetComponent<EnemyBehavior>());
         Destroy(newPlayerObj.GetComponent<EnemyHit>());
         Destroy(newPlayerObj.GetComponent<Rigidbody>());
+        Destroy(newPlayerObj.GetComponent<EnemyAI>());
+        Destroy(newPlayerObj.GetComponent<NavMeshAgent>());
+        
+
+
         // Need to remove enemy canvas
 
         // add player scripts
