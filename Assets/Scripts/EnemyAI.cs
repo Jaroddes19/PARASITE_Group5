@@ -79,6 +79,10 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         if (LevelManager.isGameOver)
         {
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;

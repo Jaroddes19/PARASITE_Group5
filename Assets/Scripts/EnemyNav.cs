@@ -44,6 +44,10 @@ public class EnemyNav : MonoBehaviour
         }
         else
         {
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+            }
             navMeshAgent.SetDestination(player.position);
 
         }

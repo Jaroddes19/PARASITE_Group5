@@ -101,6 +101,7 @@ public class EnemyHit : MonoBehaviour
     public void Parasitized()
     {
         enemyCount--;
+        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
     }
 
 

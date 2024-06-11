@@ -94,6 +94,8 @@ public class PlayerAttack : MonoBehaviour
         Destroy(newPlayerObj.GetComponent<Rigidbody>());
         Destroy(newPlayerObj.GetComponent<EnemyAI>());
         Destroy(newPlayerObj.GetComponent<NavMeshAgent>());
+        Destroy(newPlayerObj.GetComponent<EnemyNav>());
+
         
 
 
