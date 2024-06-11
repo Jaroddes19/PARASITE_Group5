@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     CharacterAttributes charAttrs;
     Vector3 input, moveDirection;
 
+    float abilityCooldownTimer;
+
     float jumpHeight;
     float moveSpeed;
     public float gravity = 9.81f;
@@ -17,14 +19,18 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
 
-        var charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
+        charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
         jumpHeight = charAttrs.jumpHeight;
-        moveSpeed = charAttrs.speed;
+        moveSpeed = charAttrs.speed * 1.15f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (abilityCooldownTimer > 0)
+        {
+            abilityCooldownTimer -= Time.deltaTime;
+        }
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -53,5 +59,10 @@ public class PlayerController : MonoBehaviour
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+
+        if (Input.GetButton("LeftShift") && abilityCooldownTimer <= 0) {
+            charAttrs.EntityAbility();
+            abilityCooldownTimer = charAttrs.abilityCooldown;
+        }
     }
 }
