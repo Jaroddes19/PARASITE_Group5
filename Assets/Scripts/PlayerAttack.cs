@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -18,12 +21,17 @@ public class PlayerAttack : MonoBehaviour
     bool attacking = false;
     bool readyToAttack = true;
 
+    float timeToNextAttack; //for UI only
+    public Slider attackCooldownBar;
+
     void Start()
     {
         var attack = gameObject.GetComponentInParent<CharacterAttributes>();
         attackDistance = attack.attackOneRange;
         attackDamage = attack.attackOneDmg;
         attackSpeed = attack.attackOneSpeed;
+
+        // attackCooldownBar = GameObject.FindGameObjectWithTag("PunchCooldown").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -37,6 +45,18 @@ public class PlayerAttack : MonoBehaviour
         {
             ParisitizeAttack();
         }
+
+        //update attack cooldown bar, show if needed
+        // if (timeToNextAttack <= 0)
+        // {
+        //     attackCooldownBar.gameObject.SetActive(false);
+        // }
+        // else
+        // {
+        //     attackCooldownBar.gameObject.SetActive(true);
+        // }
+        // timeToNextAttack -= Time.deltaTime;
+        // attackCooldownBar.value = Mathf.Clamp(timeToNextAttack, 0, attackSpeed);
     }
 
     void Attack()
@@ -49,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
             AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position);
 
             Invoke("ResetAttack", attackSpeed);
+            timeToNextAttack = attackSpeed;
             AttackRaycast();
         }
     }
@@ -64,7 +85,6 @@ public class PlayerAttack : MonoBehaviour
         // if the attack hits
         if (Physics.Raycast(transform.position, transform.forward, out parasiteAtk, attackDistance))
         {
-            // do we meet the conditions to parisitize this enemy? (currently a stub method)
             // get the top level gameobject (in case an arm, etc is collided with)
             var root = parasiteAtk.transform.gameObject;
             if (canParisitize(root))
@@ -86,7 +106,6 @@ public class PlayerAttack : MonoBehaviour
     void Parasitize(GameObject newPlayerObj)
     {
         AudioSource.PlayClipAtPoint(parasiteSFX, Camera.main.transform.position);
-        // Debug.Log("Running parasite operations");
         // remove enemy scripts
         newPlayerObj.GetComponent<EnemyHit>().Parasitized();
         Destroy(newPlayerObj.GetComponent<EnemyBehavior>());
@@ -96,10 +115,6 @@ public class PlayerAttack : MonoBehaviour
         Destroy(newPlayerObj.GetComponent<NavMeshAgent>());
         Destroy(newPlayerObj.GetComponent<EnemyNav>());
 
-        
-
-
-        // Need to remove enemy canvas
 
         // add player scripts
         newPlayerObj.AddComponent<PlayerController>();
@@ -117,9 +132,11 @@ public class PlayerAttack : MonoBehaviour
         // shift camera to new player controlled gameobj
         gameObject.transform.SetParent(newPlayerObj.transform);
         gameObject.transform.localPosition = new Vector3(0, 0, 0);
+        // fixing an issue where the camera was broken after takeover, plus a smoother transition
+        newPlayerObj.transform.rotation = oldPlayer.transform.rotation;
 
         newPlayerObj.tag = "Player";
-        
+
 
         // if (Need to find a way to distinguish parasite and old enemy that the player is controlling)
         // {
@@ -141,7 +158,7 @@ public class PlayerAttack : MonoBehaviour
 
 
         /*
-        gameObject.tag = "Enemy"; // in case the player ever has the option to leave a vicitm alive
+        gameObject.tag = "Enemy"; // in case the player ever has the option to leave a victim alive
 
         // make old victim back to an enemy
         gameObject.AddComponent<EnemyBehavior>();

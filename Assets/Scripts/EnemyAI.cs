@@ -28,7 +28,6 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     public GameObject projectilePrefab;
 
-    public GameObject deadVFX;
 
 
     public GameObject stinger;
@@ -65,11 +64,6 @@ public class EnemyAI : MonoBehaviour
         wanderPoints = GameObject.FindGameObjectsWithTag("WanderPoint");
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
-        if (deadVFX == null)
-        {
-            deadVFX = Resources.Load("BloodSplatter") as GameObject;
-
-        }
 
 
         health = charAttrs.currentHealth;
@@ -262,8 +256,6 @@ public class EnemyAI : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(deathSFX, transform.position);
         }
-
-        Instantiate(deadVFX, deadTransform.position, deadTransform.rotation);
     }
 
     public Vector3 GetNextDestination()

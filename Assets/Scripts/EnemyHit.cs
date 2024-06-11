@@ -102,6 +102,10 @@ public class EnemyHit : MonoBehaviour
     {
         enemyCount--;
         FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
+        if (enemyCount == 0)
+        {
+            FindObjectOfType<LevelManager>().LevelBeat();
+        }
     }
 
 

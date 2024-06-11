@@ -9,9 +9,6 @@ public class LevelManager : MonoBehaviour
     public Text gameText;
 
     public Text waveText;
-
-    public AudioClip gameOverSFX;
-
     public AudioClip gameWinSFX;
 
     public static bool isGameOver = false;
@@ -45,7 +42,15 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (waveText == null)
+        {
+            waveText = GameObject.Find("WaveText").GetComponent<Text>();
+        }
+        if (gameText == null)
+        {
+            gameText = GameObject.Find("GameText").GetComponent<Text>();
 
+        }
     }
 
 

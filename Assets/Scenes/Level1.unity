@@ -3276,7 +3276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameText: {fileID: 2046474706}
   waveText: {fileID: 0}
-  gameOverSFX: {fileID: 0}
   gameWinSFX: {fileID: 0}
   nextLevel: Level1
 --- !u!43 &1688583710
