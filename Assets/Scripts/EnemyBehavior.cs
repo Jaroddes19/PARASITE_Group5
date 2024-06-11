@@ -34,7 +34,6 @@ public class EnemyBehavior : MonoBehaviour
 
         atkCooldown -= Time.deltaTime;
 
-        FindObjectOfType<LevelManager>().SetEnemiesText(enemyCount);
         if (LevelManager.isGameOver)
         {
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
@@ -45,9 +44,6 @@ public class EnemyBehavior : MonoBehaviour
                 player = GameObject.FindGameObjectWithTag("Player").transform;
             }
             // float step = moveSpeed * Time.deltaTime;
-
-            transform.LookAt(player);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, step);
 
             if (Vector3.Distance(transform.position, player.position) < 5 && atkCooldown < 0)
             {

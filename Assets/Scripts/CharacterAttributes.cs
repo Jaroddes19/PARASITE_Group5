@@ -88,6 +88,20 @@ public class CharacterAttributes : MonoBehaviour
     // big ground slam
     float blob_ablCooldown = 10f;
 
+    // flying flotus - fast and ranged
+    int ff_MaxHp = 30;
+    int ff_CurHp = 30;
+
+    float ff_Speed = 10f;
+    float ff_JmpHgt = 4f;
+
+    float ff_AtkOneRange = 3f;
+    int ff_atkOneDmg = 5;
+    float ff_atkOneSpeed = 2f;
+    float ff_AtkTwoRange = 10f; 
+    int ff_atkTwoDmg = 10;
+    float ff_atkTwoSpeed = 2f;
+
 
     // NEXT ENEMY TYPE HERE
 
@@ -156,6 +170,21 @@ public class CharacterAttributes : MonoBehaviour
             attackTwoSpeed = blob_atkTwoSpeed;
 
             abilityCooldown = blob_ablCooldown;
+        }
+        else if (characterType == "FlyingFlotus") {
+            currentHealth = ff_CurHp;
+            maxHealth = ff_MaxHp;
+
+            speed = ff_Speed;
+            jumpHeight = ff_JmpHgt;
+
+            attackOneRange = ff_AtkOneRange;
+            attackOneDmg = ff_atkOneDmg;
+            attackOneSpeed = ff_atkOneSpeed;
+
+            attackTwoRange = ff_AtkTwoRange;
+            attackTwoDmg = ff_atkTwoDmg;
+            attackTwoSpeed = ff_atkTwoSpeed;
         }
         else {
             throw new ArgumentException("Invalid character type provided: " + characterType);

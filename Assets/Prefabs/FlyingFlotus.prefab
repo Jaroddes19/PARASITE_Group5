@@ -348,10 +348,10 @@ GameObject:
   - component: {fileID: 8421683357977311552}
   - component: {fileID: 3267248863970403788}
   - component: {fileID: 8338329379342061867}
-  - component: {fileID: 8280192756231869349}
   - component: {fileID: 2451454164230142212}
   - component: {fileID: 5449862058694218753}
   - component: {fileID: -8656182026482167060}
+  - component: {fileID: 9053306753728025849}
   m_Layer: 0
   m_Name: FlyingFlotus
   m_TagString: Enemy
@@ -514,26 +514,7 @@ MonoBehaviour:
   attackTwoRange: 0
   attackTwoDmg: 0
   attackTwoSpeed: 0
---- !u!114 &8280192756231869349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8048285978170410661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c8bbcc54990f44ba62da12d42400d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  chaseDistance: 10
-  attackSFX: {fileID: 0}
-  deathSFX: {fileID: 0}
-  player: {fileID: 0}
-  projectilePrefab: {fileID: 4630375016080494987, guid: 73d16a94e70a6a94c995fce51b315c45, type: 3}
-  deadVFX: {fileID: 6563140752140696787, guid: 24ef27fe0b8b95647aa1cddd5d30a003, type: 3}
-  stinger: {fileID: 139327606487883538}
+  abilityCooldown: 0
 --- !u!114 &2451454164230142212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +646,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9053306753728025849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048285978170410661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77249de851032412597d8ba62fbe137b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  chaseDistance: 15
+  attackSFX: {fileID: 0}
+  deathSFX: {fileID: 0}
+  player: {fileID: 7545358771692703522, guid: efe3af7f88bb6e24ebf75d2ed208bbb8, type: 3}
+  projectilePrefab: {fileID: 4630375016080494987, guid: 73d16a94e70a6a94c995fce51b315c45, type: 3}
+  deadVFX: {fileID: 0}
+  stinger: {fileID: 139327606487883538}
 --- !u!1 &8433318949202426367
 GameObject:
   m_ObjectHideFlags: 0
