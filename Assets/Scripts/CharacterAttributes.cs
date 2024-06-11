@@ -52,7 +52,7 @@ public class CharacterAttributes : MonoBehaviour
     int para_atkTwoDmg = 5;
     float para_atkTwoSpeed = 3f;
 
-    float para_ablCooldown = 4f;
+    float para_ablCooldown = 2.5f;
 
     // LAB MANAGER (example, can change):
     int lm_MaxHp = 100;
@@ -99,7 +99,7 @@ public class CharacterAttributes : MonoBehaviour
     int ff_atkOneDmg = 5;
     float ff_atkOneSpeed = 2f;
     float ff_AtkTwoRange = 10f; 
-    int ff_atkTwoDmg = 10;
+    int ff_atkTwoDmg = 3;
     float ff_atkTwoSpeed = 2f;
 
 

@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
         charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
         jumpHeight = charAttrs.jumpHeight;
-        moveSpeed = charAttrs.speed;
+        moveSpeed = charAttrs.speed * 1.15f; //some extra scaling to give the player a slight boost
     }
 
     // Update is called once per frame
