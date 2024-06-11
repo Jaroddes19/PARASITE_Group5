@@ -13,11 +13,13 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         charAttrs = gameObject.GetComponentInParent<CharacterAttributes>();
-        healthSlider.maxValue = charAttrs.maxHealth;
 
-        if (healthSlider == null ) {
+        if (healthSlider == null)
+        {
             healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
+        healthSlider.maxValue = charAttrs.maxHealth;
+
         healthSlider.value = charAttrs.currentHealth;
     }
 
