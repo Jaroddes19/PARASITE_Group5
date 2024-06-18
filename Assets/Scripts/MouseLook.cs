@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MouseLook : MonoBehaviour
 {
     Transform playerBody;
-    public float mouseSensitivity = 700;
+    public static float mouseSensitivity = 700;
 
     public Image reticleImage;
 
@@ -26,6 +26,10 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenuBehavior.GameIsPaused)
+        {
+            return;
+        }
         // done in Update() because the player's body can change
         playerBody = transform.parent.transform;
 
