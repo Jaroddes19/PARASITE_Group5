@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     public FSMStates currentState;
 
     public float chaseDistance = 15.0f;
-
+    public int fieldOfView = 90;
     public AudioClip attackSFX;
 
     public AudioClip deathSFX;
@@ -28,7 +28,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     public GameObject projectilePrefab;
 
-
+    public Transform enemyEyes;
 
     public GameObject stinger;
 
@@ -121,22 +121,16 @@ public class EnemyAI : MonoBehaviour
     {
         // Debug.Log("Patroling");
         // anim.SetInteger("animState", 1);
-        // Debug.Log(Vector3.Distance(transform.position, new Vector3(nextDestination.x, 0, nextDestination.z)));
         if (Vector3.Distance(transform.position, new Vector3(nextDestination.x, transform.position.y, nextDestination.z)) < 1f)
         {
             findNextPoint();
         }
-        else if (distanceToPlayer <= chaseDistance)
+        else if (IsPlayerInClearFOV() || distanceToPlayer <= chaseDistance)
         {
             currentState = FSMStates.Chase;
         }
 
         // FaceTarget(nextDestination);
-
-        // transform.position = Vector3.MoveTowards(transform.position, nextDestination, charAttrs.speed * Time.deltaTime);
-
-
-
     }
 
     void UpdateChaseState()
@@ -261,5 +255,27 @@ public class EnemyAI : MonoBehaviour
     public Vector3 GetNextDestination()
     {
         return nextDestination;
+    }
+
+    bool IsPlayerInClearFOV()
+    {
+        Vector3 directionToPlayer = player.transform.position - enemyEyes.position;
+
+        if (Vector3.Angle(directionToPlayer, enemyEyes.forward) <= fieldOfView)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(enemyEyes.position, directionToPlayer, out hit, chaseDistance))
+            {
+                // ray collides with object, is it player?
+                if (hit.collider.CompareTag("Player"))
+                {
+                    // player hit
+                    return true;
+
+                }
+            }
+        }
+
+        return false;
     }
 }

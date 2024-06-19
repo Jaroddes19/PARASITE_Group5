@@ -99,12 +99,15 @@ public class PlayerAttack : MonoBehaviour
     }
 
     /* 
-     * Preform the action of parisitizing the hit enemy. Some behavior here needs defined.
+     * Preform the action of parasitizing the hit enemy.
      * 
      * Adds player/camera control scripts, and removes enemy ai scripts from the hit 
      */
     void Parasitize(GameObject newPlayerObj)
     {
+        //reset FOV in case of speed FX
+        Camera.main.fieldOfView = GetComponentInParent<PlayerController>().oldFOV;
+
         AudioSource.PlayClipAtPoint(parasiteSFX, Camera.main.transform.position);
         // remove enemy scripts
         newPlayerObj.GetComponent<EnemyHit>().Parasitized();
@@ -180,7 +183,8 @@ public class PlayerAttack : MonoBehaviour
         {
             var hitAttrs = hitObj.GetComponent<CharacterAttributes>();
             Debug.Log((hitAttrs.currentHealth / (float)hitAttrs.maxHealth) <= hpParasiteThreshold);
-            return (hitAttrs.currentHealth / (float)hitAttrs.maxHealth) <= hpParasiteThreshold;
+            //return (hitAttrs.currentHealth / (float)hitAttrs.maxHealth) <= hpParasiteThreshold;
+            return true;
         }
         return false;
     }

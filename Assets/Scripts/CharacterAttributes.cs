@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using System.Reflection.Emit;
 
 public class CharacterAttributes : MonoBehaviour
 {
@@ -39,8 +40,8 @@ public class CharacterAttributes : MonoBehaviour
      * Attributes for each characterType:
      */
     // PARASITE:
-    int para_MaxHp = 50;
-    int para_CurHp = 50;
+    int para_MaxHp = 5000;
+    int para_CurHp = 5000;
 
     float para_Speed = 6f;
     float para_JmpHgt = 3.5f;
@@ -101,6 +102,8 @@ public class CharacterAttributes : MonoBehaviour
     float ff_AtkTwoRange = 10f; 
     int ff_atkTwoDmg = 3;
     float ff_atkTwoSpeed = 2f;
+
+    float ff_ablCooldown = 4.0f;
 
 
     // NEXT ENEMY TYPE HERE
@@ -185,6 +188,8 @@ public class CharacterAttributes : MonoBehaviour
             attackTwoRange = ff_AtkTwoRange;
             attackTwoDmg = ff_atkTwoDmg;
             attackTwoSpeed = ff_atkTwoSpeed;
+
+            abilityCooldown = ff_ablCooldown;
         }
         else {
             throw new ArgumentException("Invalid character type provided: " + characterType);
@@ -202,6 +207,7 @@ public class CharacterAttributes : MonoBehaviour
         {
             //TODO
         }
+        /*
         else if (characterType == "Blob")
         {
             //slam attack for blob
@@ -211,6 +217,11 @@ public class CharacterAttributes : MonoBehaviour
             await Task.Delay(1000);
             GameObject blob = Instantiate(slamEffect, transform.position + Vector3.down * 0.9f, Quaternion.Euler(0, 0, 0));
             blob.SetActive(true);
+        }
+        */
+        else if (characterType == "FlyingFlotus")
+        {
+
         }
         else
         {
@@ -232,11 +243,26 @@ public class CharacterAttributes : MonoBehaviour
         // card swipe to activate objects, open doors
         else if (characterType == "LabManager")
         {
-            Debug.Log("Triggering ability for lab manager");
+            GameObject card = Instantiate(Resources.Load("AccessCard") as GameObject);   
+            card.SetActive(true);
+
+            RaycastHit hit;
+            bool didHit = Physics.Raycast(transform.position, transform.forward, out hit, 7f);
+            if (didHit && hit.collider.CompareTag("LabDoor"))
+            {
+                Debug.Log("OPENED DOOR");
+                hit.collider.gameObject.GetComponent<LabDoor>().Open();
+            }
         }
+        /*
         else if (characterType == "Blob")
         {
             Debug.Log("Triggering ability for blob");
+        }
+        */
+        else if (characterType == "FlyingFlotus")
+        {
+            Debug.Log("Triggering ability for flying flotus");
         }
         else {
             throw new ArgumentException("Invalid character type provided: " + characterType);

@@ -49,8 +49,6 @@ public class EnemySpawner : MonoBehaviour
 
             GameObject spawnedEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], enemyPosition, transform.rotation) as GameObject;
 
-            Debug.Log("Spawned enemy at " + enemyPosition); 
-
             spawnedEnemy.transform.parent = gameObject.transform;
         }
         FindObjectOfType<LevelManager>().SetWaveText(waves);
