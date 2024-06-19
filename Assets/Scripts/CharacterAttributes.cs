@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 public class CharacterAttributes : MonoBehaviour
 {
     // The string type that determines what character the entity that has this file attached is
-    //should really be made into an enumeration eventually
+
+    public static float dashDistanceMultiplier = 1.0f;
     public string characterType = "Parasite";
 
     /*
@@ -31,6 +32,7 @@ public class CharacterAttributes : MonoBehaviour
     public float attackTwoRange;
     public int attackTwoDmg;
     public float attackTwoSpeed;
+    public float dashDistance = 2f;
 
     //ability 
     public float abilityCooldown;
@@ -227,7 +229,7 @@ public class CharacterAttributes : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             dashDirection = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
-            gameObject.GetComponent<CharacterController>().Move(dashDirection * 2f);
+            gameObject.GetComponent<CharacterController>().Move(dashDirection * (dashDistance * dashDistanceMultiplier));
         } 
         // card swipe to activate objects, open doors
         else if (characterType == "LabManager")

@@ -9,6 +9,12 @@ using UnityEngine.UI;
 public class PlayerAttack : MonoBehaviour
 {
     // the max %hp an enemy can have and be parasitized
+
+    public static float attackDamageMultiplier = 1.0f;
+    public static float attackCooldownMultiplier = 1.0f;
+    public static float speedMultiplier = 1.0f;
+    public static float jumpHeightMultiplier = 1.0f;
+    
     public float hpParasiteThreshold = 0.5f;
 
     public AudioClip attackSFX;
@@ -17,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
     float attackDistance;
     int attackDamage;
     float attackSpeed;
+    float jumpHeight;
+    float speed;
 
     bool attacking = false;
     bool readyToAttack = true;
@@ -26,10 +34,13 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
-        var attack = gameObject.GetComponentInParent<CharacterAttributes>();
-        attackDistance = attack.attackOneRange;
-        attackDamage = attack.attackOneDmg;
-        attackSpeed = attack.attackOneSpeed;
+        var stats = gameObject.GetComponentInParent<CharacterAttributes>();
+        attackDistance = stats.attackOneRange;
+        attackDamage = ((int) ((float) stats.attackOneDmg * attackDamageMultiplier));
+        attackSpeed = stats.attackOneSpeed;
+        jumpHeight = stats.jumpHeight * jumpHeightMultiplier;
+        speed = stats.speed * speedMultiplier; 
+
 
         // attackCooldownBar = GameObject.FindGameObjectWithTag("PunchCooldown").GetComponent<Slider>();
     }
@@ -73,7 +84,7 @@ public class PlayerAttack : MonoBehaviour
             AudioSource.PlayClipAtPoint(attackSFX, Camera.main.transform.position);
 
             Invoke("ResetAttack", attackSpeed);
-            timeToNextAttack = attackSpeed;
+            timeToNextAttack = attackSpeed * attackCooldownMultiplier;
             AttackRaycast();
         }
     }

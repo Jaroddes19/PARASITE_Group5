@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenuBehavior.GameIsPaused)
+        {
+            return;
+        }
+
         if (abilityCooldownTimer > 0)
         {
             abilityCooldownTimer -= Time.deltaTime;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public static float healthMultiplier = 1.0f;
     // public AudioClip deathSFX;
     public Slider healthSlider;
     CharacterAttributes charAttrs;
@@ -18,6 +19,10 @@ public class PlayerHealth : MonoBehaviour
         {
             healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
+        charAttrs.currentHealth = (int) ((float)charAttrs.currentHealth * healthMultiplier);
+        charAttrs.maxHealth = (int) ((float)(charAttrs.maxHealth * healthMultiplier));
+
+
         healthSlider.maxValue = charAttrs.maxHealth;
 
         healthSlider.value = charAttrs.currentHealth;
