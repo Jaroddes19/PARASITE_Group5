@@ -9,7 +9,14 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Load the next scene in the build index
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     public void QuitGame()
